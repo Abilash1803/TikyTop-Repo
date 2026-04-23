@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const SPOTLIGHT_CONTENT = {
-  badge: "Premium Growth Solutions",
-  title: "Join Us, Be You!",
-  subtitle: "You wouldn't be here if the way you've been working was working; it's time for TikyTop! Make your social media growth graph move upwards seamlessly.",
-  buttonText: "Try TikyTop"
+    badge: "Premium Growth Solutions",
+    title: "Ready to Take the Spotlight on Social Media?",
+    subtitle: "Every creator, brand, or business wants to stand out and be recognised. With the right push, your content can reach more people, attract attention, and build a presence that turns profiles into popular platforms. At Tikytop, we help you move closer to that spotlight. Grow across TikTok, Instagram, YouTube, and Facebook with services designed to increase followers, likes, and views. Whether you want to buy TikTok likes, buy Instagram followers, buy YouTube views, or buy Facebook page likes, the right engagement can help your profile gain momentum and recognition.",
+    buttonText: "Try TikyTop"
 };
 
 const Spotlight = () => {
@@ -33,12 +34,13 @@ const Spotlight = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1]"
+                        className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]"
                     >
-                        {title.split(', ').map((text, i) => (
-                          <React.Fragment key={i}>
-                            {i === 0 ? text + ', ' : <span className="text-[#00F5D4]">{text}</span>}
-                          </React.Fragment>
+                        {title.split('Social Media?').map((text, i) => (
+                            <React.Fragment key={i}>
+                                {text}
+                                {i === 0 && <span className="text-[#00F5D4]">Social Media?</span>}
+                            </React.Fragment>
                         ))}
                     </motion.h2>
 
@@ -47,7 +49,7 @@ const Spotlight = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl md:text-2xl text-slate-300 leading-relaxed font-medium"
+                        className="text-sm md:text-base text-slate-300 leading-relaxed font-medium"
                     >
                         {subtitle}
                     </motion.p>
@@ -59,9 +61,12 @@ const Spotlight = () => {
                         transition={{ delay: 0.3 }}
                         className="pt-6"
                     >
-                        <button className="px-12 py-5 bg-white text-[#020A1B] rounded-full text-lg font-extrabold hover:bg-[#FF00C8] hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest">
+                        <Link
+                            to="/register"
+                            className="inline-block px-12 py-5 bg-white text-[#020A1B] rounded-full text-lg font-extrabold hover:bg-[#FF00C8] hover:text-white transition-all shadow-xl hover:scale-105 active:scale-95 uppercase tracking-widest"
+                        >
                             {buttonText}
-                        </button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>

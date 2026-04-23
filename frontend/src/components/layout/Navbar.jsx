@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const NAVBAR_CONTENT = {
   brand: "TikyTop",
@@ -102,10 +103,10 @@ const MegaMenu = ({ isOpen }) => {
                             <h3 className="font-extrabold text-[#020A1B] border-b-2 border-gray-50 pb-3 inline-block w-fit uppercase text-xs tracking-widest">{cat.label}</h3>
                             <div className="flex flex-col space-y-4">
                                 {cat.items.map((item, i) => (
-                                    <a key={i} href="#" className="text-[15px] text-[#75819A] hover:text-[#FF00C8] transition-colors font-medium flex items-center gap-2 group">
+                                    <Link key={i} to={`/order/${item.toLowerCase().replace(/ /g, '-')}`} className="text-[15px] text-[#75819A] hover:text-[#FF00C8] transition-colors font-medium flex items-center gap-2 group">
                                         <span className="w-1.5 h-1.5 rounded-full bg-gray-100 group-hover:bg-[#FF00C8]" />
                                         {cat.label} <span className="text-[#FF00C8] font-black">{item}</span>
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -121,10 +122,10 @@ const MegaMenu = ({ isOpen }) => {
                 </div>
                 <div className="flex justify-between items-center px-16">
                     {megaMenu.trending.map((item, idx) => (
-                        <a key={idx} href="#" className="flex items-center gap-2.5 text-[15px] font-bold text-[#020A1B] hover:text-[#FF00C8] transition-colors">
+                        <Link key={idx} to={`/order/${item.text.toLowerCase().replace(/ /g, '-')}`} className="flex items-center gap-2.5 text-[15px] font-bold text-[#020A1B] hover:text-[#FF00C8] transition-colors">
                             {getTrendingIcon(item.icon, item.color)}
                             {item.text}
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
@@ -157,9 +158,9 @@ const NavItem = ({ title, active, isMega, dropdownItems }) => {
                 <div className={`absolute top-[110%] left-0 w-56 bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-50 overflow-hidden transition-all duration-200 ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                     <div className="py-4">
                         {dropdownItems?.map((item) => (
-                            <a key={item} href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="block px-6 py-2.5 text-[14px] text-[#75819A] hover:bg-gray-50 hover:text-[#FF00C8] font-bold transition-colors">
+                            <Link key={item} to={`/order/${item.toLowerCase().replace(/ /g, '-')}`} className="block px-6 py-2.5 text-[14px] text-[#75819A] hover:bg-gray-50 hover:text-[#FF00C8] font-bold transition-colors">
                                 {item}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -193,9 +194,9 @@ const Navbar = () => {
                         </span>
                     </button>
 
-                    <button className="hidden sm:flex px-8 py-2.5 text-[15px] font-semibold text-white bg-[#020A1B] hover:bg-[#FF00C8] rounded-full transition-all shadow-sm">
+                    <Link to="/login" className="hidden sm:flex px-8 py-2.5 text-[15px] font-semibold text-white bg-[#020A1B] hover:bg-[#FF00C8] rounded-full transition-all shadow-sm">
                         {NAVBAR_CONTENT.loginText}
-                    </button>
+                    </Link>
                     
                     <button className="lg:hidden text-[#020A1B]">
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

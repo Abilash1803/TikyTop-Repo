@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const TRENDING_PACKAGES = {
   sectionTitle: "Trending Growth Packages",
@@ -140,14 +141,13 @@ const TrendingPackage = () => {
                                 ))}
                             </ul>
                             
-                            <motion.button 
+                            <Link 
+                                to={`/order/${pkg.id}`}
                                 className="w-full py-4 rounded-2xl font-bold text-lg cursor-pointer transition-all duration-300 text-white flex items-center justify-center gap-3 shadow-lg"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
                                 style={{ background: iconBg }}
                             >
                                 {buttonText}
-                            </motion.button>
+                            </Link>
                         </motion.div>
                     );
                 })}

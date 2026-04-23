@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { THEME, GLOBAL_CONFIG } from '../../utils/constants';
 
 const HeroSection = () => {
@@ -30,14 +31,14 @@ const HeroSection = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
-            <button className="px-8 py-3.5 bg-[#FF00C8] hover:bg-[#D600A7] text-white text-base font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 w-full sm:w-auto">
-              {content.primaryCTA}
-            </button>
-            <button className="px-8 py-3.5 bg-white hover:bg-gray-50 text-[#020A1B] text-base font-semibold rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 w-full sm:w-auto hover:border-[#00F5D4]">
-              {content.secondaryCTA}
-            </button>
-          </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2">
+              <Link to="/register" className="px-8 py-3.5 bg-[#FF00C8] hover:bg-[#D600A7] text-white text-base font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 w-full sm:w-auto text-center">
+                {content.primaryCTA}
+              </Link>
+              <button className="px-8 py-3.5 bg-white hover:bg-gray-50 text-[#020A1B] text-base font-semibold rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 w-full sm:w-auto hover:border-[#00F5D4]">
+                {content.secondaryCTA}
+              </button>
+            </div>
 
           {/* Trustscore */}
           <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
